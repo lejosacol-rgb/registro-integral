@@ -1,0 +1,98 @@
+:root{
+  --bg:#f5f5f5;
+  --card:#ffffff;
+  --primary:#1976d2;
+  --text:#222;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#121212;
+    --card:#1e1e1e;
+    --text:#eee;
+  }
+}
+body{
+  margin:0;
+  font-family:system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* SPLASH */
+#splash{
+  position:fixed;
+  inset:0;
+  background:var(--primary);
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  animation:fadeOut .8s ease forwards;
+  animation-delay:1.4s;
+}
+@keyframes fadeOut{to{opacity:0;visibility:hidden}}
+
+header{
+  padding:16px;
+  background:var(--primary);
+  color:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:20px;
+}
+header button{
+  border:none;
+  background:#ffffff22;
+  color:#fff;
+  border-radius:50%;
+  width:42px;
+  height:42px;
+}
+
+main{
+  padding:16px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:12px;
+}
+
+.card{
+  background:var(--card);
+  border-radius:18px;
+  padding:18px;
+  text-align:center;
+  box-shadow:0 6px 14px rgba(0,0,0,.15);
+  cursor:grab;
+}
+
+button{
+  border:none;
+  border-radius:12px;
+  padding:10px 14px;
+  background:var(--primary);
+  color:#fff;
+}
+
+.modal,.confirm{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  display:none;
+  align-items:center;
+  justify-content:center;
+}
+
+.modalContent,.confirmBox{
+  background:var(--card);
+  padding:18px;
+  border-radius:18px;
+  width:92%;
+  max-width:520px;
+}
+
+.row{display:flex;gap:8px}
+.cancel{background:#aaa}
+.delete{background:#d32f2f}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registro Integral de Salud</title>
+
+<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+<div id="splash">
+  <h1>🏥 Registro Integral</h1>
+  <p>Sistema de Salud</p>
+</div>
+
+<header>
+  🏥 Registro Integral
+  <button onclick="openConfig()">⚙️</button>
+</header>
+
+<main id="main"></main>
+
+<!-- CONFIG -->
+<div class="modal" id="config">
+<div class="modalContent">
+
+<h3>⚙️ Configuración</h3>
+
+<label>📤 WhatsApp</label>
+<input id="wsap" placeholder="Ej: 573001234567">
+
+<hr>
+<h4>➕ Crear ventana</h4>
+<input id="vName" placeholder="Nombre">
+<input id="vIcon" placeholder="Emoji">
+<button onclick="addWindow()">Agregar</button>
+
+<hr>
+<h4>✏️ Editar ventana</h4>
+<select id="editWin"></select>
+<input id="newWinName" placeholder="Nuevo nombre">
+<input id="newWinIcon" placeholder="Nuevo emoji">
+<button onclick="saveWindowEdit()">Guardar</button>
+
+<hr>
+<h4>🗑️ Eliminar ventana</h4>
+<select id="delWin"></select>
+<button onclick="deleteWindow()">Eliminar</button>
+
+<hr>
+<h4>📄 Duplicar ventana</h4>
+<select id="dupWin"></select>
+<input id="dupName" placeholder="Nuevo nombre">
+<input id="dupIcon" placeholder="Nuevo emoji">
+<button onclick="duplicateWindow()">Duplicar</button>
+
+<hr>
+<h4>🧩 Crear campo</h4>
+<select id="fieldWin"></select>
+<input id="cName" placeholder="Nombre campo">
+<input id="cIcon" placeholder="Emoji">
+<select id="cType">
+  <option value="text">Texto</option>
+  <option value="number">Número</option>
+  <option value="auto">Automático</option>
+</select>
+<input id="cOpt" placeholder="Opciones | separadas">
+<label><input type="checkbox" id="cCam"> Cámara</label>
+<button onclick="addField()">Agregar campo</button>
+
+<hr>
+<h4>✏️ Editar campo</h4>
+<select id="editFieldWin" onchange="loadFields()"></select>
+<select id="editField"></select>
+<input id="editFieldName" placeholder="Nuevo nombre">
+<input id="editFieldIcon" placeholder="Nuevo emoji">
+<button onclick="saveFieldEdit()">Guardar</button>
+
+<hr>
+<h4>🗑️ Eliminar campo</h4>
+<div id="fieldDelete"></div>
+
+<hr>
+<button onclick="closeConfig()">Cerrar</button>
+
+</div>
+</div>
+
+<!-- CONFIRMAR -->
+<div class="confirm" id="confirmModal">
+  <div class="confirmBox">
+    <h3>🗑️ Eliminar ventana</h3>
+    <p>¿Eliminar esta ventana y todo su contenido?</p>
+    <div class="row">
+      <button class="cancel" onclick="closeConfirm()">Cancelar</button>
+      <button class="delete" onclick="confirmDelete()">Eliminar</button>
+    </div>
+  </div>
+</div>
+
+<div class="confirm" id="confirmFieldModal">
+  <div class="confirmBox">
+    <h3>🗑️ Eliminar campo</h3>
+    <p>¿Seguro que deseas eliminar este campo?</p>
+    <div class="row">
+      <button class="cancel" onclick="closeFieldConfirm()">Cancelar</button>
+      <button class="delete" onclick="confirmDeleteField()">Eliminar</button>
+    </div>
+  </div>
+</div>
+
+<!-- FORM -->
+<div class="modal" id="formModal">
+<div class="modalContent">
+<h3 id="formTitle"></h3>
+<div id="formFields"></div>
+<div class="row">
+<button onclick="sendWhats()">📤</button>
+<button onclick="clearForm()">🧹</button>
+<button onclick="closeForm()">Cerrar</button>
+</div>
+</div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
